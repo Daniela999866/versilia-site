@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ════════════════════════════════════════════════════════════
+   VILLA VERSILIA — CSS Custom Properties
+   Colori campionati dal logo ufficiale (1000107253.jpg)
+   Blu brand:   #296092  ← VV monogram + "VILLA VERSILIA"
+   Oro corona:  #AF8649  ← corona + punto separatore
+   Crema:       #FEFBF6  ← sfondo logo
+   Blu-grigio:  #839EB8  ← "LIDO DI CAMAIORE · TUSCANY"
+════════════════════════════════════════════════════════════ */
+:root {
+  /* Font families */
+  --font-playfair:  'Playfair Display', Georgia, serif;
+  --font-lato:      'Lato', system-ui, sans-serif;
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+
+  /* Brand */
+  --brand-50:  #EEF4FA;
+  --brand-100: #D1E3F1;
+  --brand-200: #A3C6E3;
+  --brand-300: #6EA3CF;
+  --brand-400: #4180B8;
+  --brand-500: #296092;   /* LOGO EXACT */
+  --brand-600: #1E4A73;
+  --brand-700: #153657;
+  --brand-800: #0D243B;
+  --brand-900: #071420;
+
+  /* Gold */
+  --gold-400: #C29440;
+  --gold-500: #AF8649;    /* LOGO EXACT */
+  --gold-600: #8C6A35;
+
+  /* Cream */
+  --cream-100: #FEFBF6;   /* LOGO EXACT */
+  --cream-200: #F7F2E8;
+
+  /* Muted */
+  --muted-500: #839EB8;   /* LOGO EXACT */
+
+  /* Line */
+  --line-400: #ABADAD;    /* LOGO EXACT */
+
+  /* Sage & Terra */
+  --sage-500:  #3E7A58;
+  --terra-500: #A5612E;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #FEFBF6;   /* cream-100 dal logo */
+    color: #1A1917;
+    font-family: var(--font-lato), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection {
+    background: #296092;
+    color: #FEFBF6;
+  }
+  :focus-visible {
+    outline: 2px solid #296092;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Titoli sezione */
+  .section-title {
+    @apply font-display text-3xl md:text-4xl font-semibold text-gray-900 leading-tight;
+  }
+  .section-subtitle {
+    @apply text-xs font-bold tracking-[0.25em] uppercase text-gold-500;
+  }
+
+  /* Pulsanti base */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3
+           bg-brand-500 hover:bg-brand-600
+           text-white text-xs font-bold tracking-widest uppercase
+           shadow-brand hover:shadow-brand-lg
+           transition-all duration-200;
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3
+           bg-gold-500 hover:bg-gold-600
+           text-white text-xs font-bold tracking-widest uppercase
+           shadow-gold hover:shadow-gold-lg
+           transition-all duration-200;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3
+           border-2 border-brand-500 text-brand-500
+           hover:bg-brand-50
+           text-xs font-bold tracking-widest uppercase
+           transition-all duration-200;
+  }
+
+  /* Form fields */
+  .input-field {
+    @apply w-full px-4 py-3
+           bg-white border border-line-400
+           text-gray-900 text-sm
+           placeholder:text-muted-500
+           focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500
+           transition-colors duration-200;
+  }
+  .label-field {
+    @apply block text-xs font-bold tracking-wide uppercase text-gray-600 mb-1.5;
+  }
+
+  /* Card ombra */
+  .shadow-card       { box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+  .shadow-card-hover { box-shadow: 0 8px 32px rgba(0,0,0,0.11); }
+
+  /* Overlay su foto */
+  .hero-overlay      { background: linear-gradient(to top, rgba(13,36,59,0.90) 0%, rgba(13,36,59,0.40) 50%, rgba(13,36,59,0.00) 100%); }
+  .hero-overlay-full { background: linear-gradient(to top, rgba(13,36,59,0.95) 0%, rgba(13,36,59,0.60) 55%, rgba(13,36,59,0.10) 100%); }
+  .hero-overlay-side { background: linear-gradient(to right, rgba(13,36,59,0.88) 0%, rgba(13,36,59,0.45) 55%, rgba(13,36,59,0.00) 100%); }
+}
+
+/* DayPicker calendar override */
+.rdp {
+  --rdp-accent-color: #296092;
+  --rdp-background-color: #EEF4FA;
+  --rdp-outline: 2px solid #296092;
+}
+.rdp-day_selected:not([disabled]) {
+  background-color: #296092 !important;
+  color: white !important;
+}
+.rdp-day_today:not(.rdp-day_selected) {
+  color: #AF8649 !important;
+  font-weight: 700;
+}
