@@ -8,9 +8,9 @@ const rooms = [
     badge: 'Camera 1',
   },
   {
-    name: 'Camera con Letti Singoli',
+    name: 'Camera con Letto matrimoniale',
     icon: '🛏️',
-    image: '/images/villa/villa-versilia-camera-singoli-tende-rosse.jpg',
+    image: '/images/villa/villa-versilia-camera-matrimoniale-tende-rosse.jpg',
     details: ['letto matrimoniale', 'Tende oscuranti', 'Aria condizionata', 'TV a parete', 'Luminosa'],
     badge: 'Camera 2',
   },
