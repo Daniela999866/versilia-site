@@ -57,13 +57,13 @@ export default function VillaDescription() {
               <ul className="space-y-3">
                 {[
                   { label: 'Tipo', value: 'Casa vacanze intera' },
-                  { label: 'Ospiti', value: 'Fino a 6-8 persone' },
+                  { label: 'Ospiti', value: 'Fino a 8- 10persone' },
                   { label: 'Camere', value: '3 camere da letto' },
                   { label: 'Bagni', value: '2 bagni completi' },
                   { label: 'Distanza mare', value: '~250 metri' },
                   { label: 'Parcheggio', value: 'Privato, 2 auto' },
-                  { label: 'Check-in', value: 'Dalle 16:00' },
-                  { label: 'Check-out', value: 'Entro le 10:00' },
+                  { label: 'Check-in', value: 'Dalle 15:30' },
+                  { label: 'Check-out', value: 'Entro le 10:30' },
                 ].map((item) => (
                   <li key={item.label} className="flex justify-between text-sm border-b border-line-200 pb-2 last:border-0">
                     <span className="text-gray-500">{item.label}</span>
