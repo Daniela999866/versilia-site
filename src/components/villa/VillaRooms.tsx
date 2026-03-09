@@ -11,7 +11,7 @@ const rooms = [
     name: 'Camera con Letti Singoli',
     icon: '🛏️',
     image: '/images/villa/villa-versilia-camera-singoli-tende-rosse.jpg',
-    details: ['2 letti singoli', 'Tende oscuranti', 'Aria condizionata', 'TV a parete', 'Luminosa'],
+    details: ['letto matrimoniale', 'Tende oscuranti', 'Aria condizionata', 'TV a parete', 'Luminosa'],
     badge: 'Camera 2',
   },
   {
