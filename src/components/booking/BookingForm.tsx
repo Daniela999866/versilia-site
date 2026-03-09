@@ -274,11 +274,11 @@ export default function BookingForm() {
           <div className="space-y-2 text-sm text-gray-600">
             {[
               { icon: '🛏', text: '3 camere · 2 bagni' },
-              { icon: '👥', text: 'Fino a 8 ospiti' },
+              { icon: '👥', text: 'Fino a 10 ospiti' },
               { icon: '🌿', text: 'Giardino privato + barbecue' },
               { icon: '🚗', text: 'Parcheggio privato 2 auto' },
               { icon: '❄️', text: 'Wi-Fi · Aria condizionata' },
-              { icon: '✅', text: 'Check-in 16:00 · Check-out 10:00' },
+              { icon: '✅', text: 'Check-in 15:30 · Check-out 10:30' },
             ].map((f) => (
               <div key={f.text} className="flex items-center gap-2">
                 <span>{f.icon}</span>
