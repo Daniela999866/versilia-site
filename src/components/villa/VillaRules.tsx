@@ -16,9 +16,9 @@ const rules = {
     'Fumo all\'interno della villa',
   ],
   checkin: [
-    { icon: Clock, label: 'Check-in', value: 'Dalle 16:00', note: 'Orario flessibile su richiesta' },
-    { icon: Clock, label: 'Check-out', value: 'Entro le 10:00', note: 'Late check-out su disponibilità' },
-    { icon: AlertCircle, label: 'Soggiorno minimo', value: '7 notti (lug-ago)', note: '3 notti in bassa stagione' },
+    { icon: Clock, label: 'Check-in', value: 'Dalle 15:30', note: 'Orario flessibile su richiesta' },
+    { icon: Clock, label: 'Check-out', value: 'Entro le 10:30', note: 'Late check-out su disponibilità' },
+    
   ],
 };
 
