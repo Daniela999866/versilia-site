@@ -12,7 +12,7 @@ const rules = {
   notAllowed: [
     'Feste con musica ad alto volume dopo le 23:00',
     'Subaffitto a terzi',
-    'Più di 8 ospiti senza accordo preventivo',
+    'Più di 10 ospiti ',
     'Fumo all\'interno della villa',
   ],
   checkin: [
