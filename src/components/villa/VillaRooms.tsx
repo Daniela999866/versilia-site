@@ -39,7 +39,7 @@ const rooms = [
     name: 'Soggiorno',
     icon: '🛋️',
     image: '/images/villa/villa-versilia-soggiorno-completo.jpg',
-    details: ['Divano letto ampio', 'TV Smart', 'Aria condizionata', 'Accesso al balcone', 'Decorazioni naturali'],
+    details: ['Divano letto matrimoniale', 'TV Smart', 'Aria condizionata', 'Accesso al balcone', 'Decorazioni naturali'],
     badge: 'Soggiorno',
   },
 ];
