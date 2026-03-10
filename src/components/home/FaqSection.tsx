@@ -6,11 +6,11 @@ import { Plus, Minus } from 'lucide-react';
 const faqs = [
   {
     q: "Qual è l'orario di check-in e check-out?",
-    a: "Il check-in è disponibile dalle ore 16:00, il check-out entro le ore 10:00. Per esigenze particolari è possibile concordare orari diversi direttamente con noi via WhatsApp.",
+    a: "Il check-in è disponibile dalle ore 15:30, il check-out entro le ore 10:30. Per esigenze particolari è possibile concordare orari diversi direttamente con noi via WhatsApp.",
   },
   {
     q: "Quante persone può ospitare la villa?",
-    a: "La villa è ideale per famiglie o gruppi fino a 6-8 persone, con 3 camere da letto e possibilità di aggiungere letti supplementari su richiesta.",
+    a: "La villa è ideale per famiglie o gruppi fino a 8-10 persone, con 3 camere da letto e possibilità di aggiungere letti supplementari su richiesta.",
   },
   {
     q: "Il parcheggio è incluso?",
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: "Qual è la politica di cancellazione?",
-    a: "Cancellazione gratuita fino a 30 giorni prima del check-in con rimborso completo della caparra. Tra 15 e 30 giorni rimborso del 50%. Sotto i 15 giorni la caparra non è rimborsabile. Per soggiorni di luglio/agosto si applicano condizioni speciali.",
+    a: "Cancellazione gratuita fino a 7 giorni prima del check-in con rimborso completo della caparra. Tra 15 e 30 giorni rimborso del 50%. Sotto i 15 giorni la caparra non è rimborsabile. Per soggiorni di luglio/agosto si applicano condizioni speciali.",
   },
 ];
 
