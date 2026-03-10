@@ -74,7 +74,7 @@ export default function HeroSection() {
         >
           {[
             { icon: '🛏', label: '3 Camere', sub: 'da letto' },
-            { icon: '👥', label: '6–8 Ospiti', sub: 'massimo' },
+            { icon: '👥', label: '8–10 Ospiti', sub: 'massimo' },
             { icon: '🌊', label: '250m', sub: 'dal mare' },
             { icon: '🌿', label: 'Giardino', sub: 'privato' },
           ].map((stat) => (
