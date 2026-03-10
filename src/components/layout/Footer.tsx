@@ -115,8 +115,8 @@ export default function Footer() {
             </ul>
             <div className="mt-5 p-3 bg-gray-800 border-l-2 border-gold-500 text-xs text-gray-400">
               <p className="font-bold text-gray-300 mb-1">Orari</p>
-              <p>Check-in: dalle 16:00</p>
-              <p>Check-out: entro le 10:00</p>
+              <p>Check-in: dalle 15:30</p>
+              <p>Check-out: entro le 10:30</p>
             </div>
           </div>
         </div>
