@@ -16,7 +16,7 @@ const features = [
   'Lavatrice',
   'Parcheggio privato 2 auto',
   '250 metri dalla spiaggia',
-  'Ideale per 6–8 persone',
+  'Ideale per 8–10 persone',
 ];
 
 export default function AboutSection() {
