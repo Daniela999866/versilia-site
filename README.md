@@ -1,4 +1,4 @@
-# Villa Versilia Relais — Sito Web Completo
+# Villa Versilia  — Sito Web Completo
 
 > Casa vacanze a Lido di Camaiore, Versilia, Toscana  
 > Via Adolfo Massei 28 · 250m dal mare · Fino a 10 ospiti
