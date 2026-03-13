@@ -1,6 +1,6 @@
 // src/app/(site)/prenotazione/page.tsx
 import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { format, parseISO, differenceInDays } from 'date-fns';
 import { it } from 'date-fns/locale';
 import { formatCurrency } from '@/lib/utils';
