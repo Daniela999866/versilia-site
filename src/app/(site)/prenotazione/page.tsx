@@ -1,4 +1,3 @@
-'use client';
 // src/app/(site)/prenotazione/page.tsx
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
