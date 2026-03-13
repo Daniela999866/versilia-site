@@ -18,10 +18,10 @@ const galleryImages = [
 
 const highlights = [
   { icon: MapPin, label: '250m dal mare', sub: '3 minuti a piedi' },
-  { icon: Bed,    label: '3 camere',      sub: 'Fino a 8 ospiti' },
+  { icon: Bed,    label: '3 camere',      sub: 'Fino a 10 ospiti' },
   { icon: Bath,   label: '2 bagni',       sub: 'Con doccia' },
   { icon: Users,  label: 'Famiglie',      sub: 'Ideale per gruppi' },
-  { icon: Wifi,   label: 'Wi-Fi incluso', sub: 'Fibra ottica' },
+  { icon: Wifi,   label: 'Wi-Fi incluso', sub:  },
   { icon: Car,    label: 'Parcheggio',    sub: '2 auto private' },
 ];
 
@@ -109,7 +109,7 @@ export default function HomePage() {
               </p>
               <p className="text-gray-600 leading-relaxed mb-8">
                 Il grande giardino privato con zona barbecue, area pranzo esterna e spazio
-                relax la rende perfetta per famiglie e gruppi fino a 8 persone che cercano
+                relax la rende perfetta per famiglie e gruppi fino a 10 persone che cercano
                 comfort e libertà senza rinunciare alla vicinanza al mare.
               </p>
               <div className="grid grid-cols-2 gap-x-8 gap-y-2 mb-8">
@@ -174,13 +174,13 @@ export default function HomePage() {
               { icon: '🌿', label: 'Giardino',      sub: 'Privato e recintato' },
               { icon: '🔥', label: 'Barbecue',      sub: 'Area pranzo esterna' },
               { icon: '❄️', label: 'A/C',           sub: 'In tutte le camere' },
-              { icon: '📶', label: 'Wi-Fi fibra',   sub: 'Alta velocità' },
+              { icon: '📶', label: 'Wi-Fi ',   sub: 'Alta velocità' },
               { icon: '🚗', label: 'Parcheggio',    sub: '2 auto incluse' },
               { icon: '🫧', label: 'Lavatrice',     sub: 'E lavastoviglie' },
               { icon: '🛁', label: '2 Bagni',       sub: 'Con doccia ampia' },
               { icon: '📺', label: 'Smart TV',      sub: 'Soggiorno + camere' },
               { icon: '☕', label: 'Cucina piena',  sub: 'Forno, microonde, tutto' },
-              { icon: '🛏', label: '3 Camere',      sub: 'Fino a 8 persone' },
+              { icon: '🛏', label: '3 Camere',      sub: 'Fino a 10 persone' },
               { icon: '🪴', label: 'Relax outdoor', sub: 'Lettini e ombrelloni' },
             ].map((item) => (
               <div key={item.label} className="bg-white p-5 flex flex-col items-center text-center shadow-card hover:shadow-card-hover transition-shadow">
@@ -274,13 +274,13 @@ export default function HomePage() {
           </div>
           <div className="space-y-4">
             {[
-              { q: 'Qual è la capienza massima?', a: 'La villa ospita comodamente fino a 8 persone (3 camere con letti fissi). Su richiesta si aggiunge un letto aggiuntivo per un 9° ospite.' },
-              { q: 'Quando si fa il check-in e il check-out?', a: 'Check-in dalle 16:00, check-out entro le 10:00. Orari flessibili possono essere concordati direttamente via WhatsApp.' },
+              { q: 'Qual è la capienza massima?', a: 'La villa ospita comodamente fino a 10 persone (3 camere con letti fissi). Su richiesta si aggiunge un letto aggiuntivo per un 9° ospite.' },
+              { q: 'Quando si fa il check-in e il check-out?', a: 'Check-in dalle 15:30, check-out entro le 10:30. Orari flessibili possono essere concordati direttamente via WhatsApp.' },
               { q: 'Gli animali sono ammessi?', a: 'Sì, accettiamo animali di piccola e media taglia. Vi chiediamo di comunicarlo al momento della prenotazione.' },
               { q: 'Come funziona il pagamento?', a: 'Si paga una caparra del 30% online con carta di credito tramite Stripe. Il saldo (70%) si paga all\'arrivo in contanti o bonifico.' },
               { q: 'Il parcheggio è incluso?', a: 'Sì, il parcheggio privato per 2 auto è incluso nel prezzo, all\'interno della recinzione della villa.' },
-              { q: 'C\'è la biancheria inclusa?', a: 'Sì, lenzuola e asciugamani sono inclusi e cambiati per soggiorni superiori a 7 notti.' },
-              { q: 'Si può prenotare per brevi soggiorni?', a: 'Il soggiorno minimo in alta stagione (luglio-agosto) è di 7 notti. In bassa stagione accettiamo da 3 notti.' },
+              { q: 'C\'è la biancheria inclusa?', a: 'Sì, lenzuola e asciugamani sono inclusi e cambiati per soggiorni superiori a 5 notti.' },
+              
             ].map((faq, i) => (
               <details key={i} className="group border border-line-300 bg-cream-100">
                 <summary className="flex items-center justify-between gap-4 p-5 cursor-pointer list-none font-bold text-gray-900 text-sm">
