@@ -3,7 +3,7 @@
 const groups = [
   { title: 'Alloggio', emoji: '🏠', items: ['3 camere da letto','2 bagni completi','Soggiorno luminoso','Cucina attrezzata','Sala da pranzo','Fino a 8 ospiti'] },
   { title: 'Comfort', emoji: '❄️', items: ['Aria condizionata','Wi-Fi gratuito','Lavatrice','TV','Biancheria inclusa','Asciugacapelli'] },
-  { title: 'Cucina', emoji: '🍳', items: ['Piano cottura','Lavastoviglie,'Frigorifero','Macchina caffè','Stoviglie complete'] },
+  { title: 'Cucina', emoji: '🍳', items: ['Piano cottura','Lavastoviglie','Frigorifero','Macchina caffè','Stoviglie complete'] },
   { title: 'Spazi esterni', emoji: '🌿', items: ['Giardino privato','Zona barbecue','Area pranzo esterna','Spazio relax','Tavolo e sedie','Illuminazione esterna'] },
   { title: 'Parcheggio', emoji: '🚗', items: ['Parcheggio privato x2','Cancello automatico','Gratuito','Sempre disponibile'] },
   { title: 'Posizione', emoji: '📍', items: ['250m dalla spiaggia','Ristoranti vicini','Stabilimenti balneari','Centro paese a piedi','Farmacia vicina','Bus e taxi'] },
