@@ -14,6 +14,8 @@ import {
 interface PriceData {
   nights: number;
   subtotal: number;
+  subtotal_before_discount?: number;
+  discount_percentage?: number;
   cleaning_fee: number;
   total: number;
   deposit: number;
@@ -39,7 +41,7 @@ function BookingForm() {
   const [loading, setLoading] = useState(false);
   const [loadingPrice, setLoadingPrice] = useState(false);
   const [paymentType, setPaymentType] = useState<'deposit' | 'full'>('deposit');
-  const [step, setStep] = useState(1); // 1: dates+guests, 2: personal info, 3: payment
+  const [step, setStep] = useState(1);
   const [createdBookingId, setCreatedBookingId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -70,8 +72,8 @@ function BookingForm() {
   const handleSubmitStep1 = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.check_in || !form.check_out) return toast.error('Seleziona le date');
-    if (differenceInDays(parseISO(form.check_out), parseISO(form.check_in)) < 3) {
-      return toast.error('Soggiorno minimo 3 notti');
+    if (differenceInDays(parseISO(form.check_out), parseISO(form.check_in)) < 1) {
+      return toast.error('Il check-out deve essere dopo il check-in');
     }
     setStep(2);
   };
@@ -89,7 +91,6 @@ function BookingForm() {
     setLoading(true);
 
     try {
-      // 1. Create booking
       const bookingRes = await fetch('/api/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -106,7 +107,6 @@ function BookingForm() {
 
       setCreatedBookingId(booking.id);
 
-      // 2. Create Stripe payment session
       const paymentRes = await fetch('/api/stripe/create-payment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -116,7 +116,6 @@ function BookingForm() {
       const { url, error: payError } = await paymentRes.json();
       if (!paymentRes.ok || payError) throw new Error(payError || 'Errore creazione pagamento');
 
-      // 3. Redirect to Stripe
       window.location.href = url;
     } catch (err: any) {
       toast.error(err.message || 'Si è verificato un errore');
@@ -130,7 +129,6 @@ function BookingForm() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
-      {/* Breadcrumb steps */}
       <div className="flex items-center justify-center gap-2 mb-10">
         {[
           { n: 1, label: 'Date & Ospiti' },
@@ -153,10 +151,8 @@ function BookingForm() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
-        {/* FORM */}
         <div className="lg:col-span-2">
 
-          {/* Step 1 */}
           {step === 1 && (
             <form onSubmit={handleSubmitStep1} className="bg-white shadow-card p-8">
               <h2 className="font-display text-2xl text-gray-900 mb-6 pb-4 border-b border-line-200">
@@ -214,9 +210,9 @@ function BookingForm() {
                   </select>
                 </div>
 
-                <div className="flex items-start gap-3 p-4 bg-blue-50 border border-blue-200 text-sm text-blue-700">
+                <div className="flex items-start gap-3 p-4 bg-amber-50 border border-amber-200 text-sm text-amber-700">
                   <Info className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                  <p>Soggiorno minimo <strong>3 notti</strong>. La caparra è pari al 30% del totale.</p>
+                  <p>La caparra è pari al 30% del totale. Tassa di soggiorno €1,50/persona/notte (non inclusa). Pulizie incluse.</p>
                 </div>
 
                 <button type="submit" className="btn-primary w-full mt-2">
@@ -227,7 +223,6 @@ function BookingForm() {
             </form>
           )}
 
-          {/* Step 2 */}
           {step === 2 && (
             <form onSubmit={handleSubmitStep2} className="bg-white shadow-card p-8">
               <h2 className="font-display text-2xl text-gray-900 mb-6 pb-4 border-b border-line-200">
@@ -294,11 +289,7 @@ function BookingForm() {
                   />
                 </div>
                 <div className="flex gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setStep(1)}
-                    className="btn-secondary flex-1"
-                  >
+                  <button type="button" onClick={() => setStep(1)} className="btn-secondary flex-1">
                     ← Indietro
                   </button>
                   <button type="submit" className="btn-primary flex-1">
@@ -310,7 +301,6 @@ function BookingForm() {
             </form>
           )}
 
-          {/* Step 3 */}
           {step === 3 && (
             <div className="bg-white shadow-card p-8">
               <h2 className="font-display text-2xl text-gray-900 mb-6 pb-4 border-b border-line-200">
@@ -318,7 +308,6 @@ function BookingForm() {
               </h2>
 
               <div className="space-y-4 mb-6">
-                {/* Deposit option */}
                 <label className={`flex items-start gap-4 p-5 border-2 cursor-pointer transition-all ${
                   paymentType === 'deposit' ? 'border-gold-500 bg-cream-100' : 'border-gray-200 hover:border-gold-300'
                 }`}>
@@ -327,7 +316,7 @@ function BookingForm() {
                     value="deposit"
                     checked={paymentType === 'deposit'}
                     onChange={() => setPaymentType('deposit')}
-                    className="mt-1 accent-sand-500"
+                    className="mt-1"
                   />
                   <div>
                     <div className="font-bold text-gray-800">Paga solo la caparra (30%)</div>
@@ -340,7 +329,6 @@ function BookingForm() {
                   </div>
                 </label>
 
-                {/* Full payment option */}
                 <label className={`flex items-start gap-4 p-5 border-2 cursor-pointer transition-all ${
                   paymentType === 'full' ? 'border-gold-500 bg-cream-100' : 'border-gray-200 hover:border-gold-300'
                 }`}>
@@ -349,7 +337,7 @@ function BookingForm() {
                     value="full"
                     checked={paymentType === 'full'}
                     onChange={() => setPaymentType('full')}
-                    className="mt-1 accent-sand-500"
+                    className="mt-1"
                   />
                   <div>
                     <div className="font-bold text-gray-800">Paga il totale adesso</div>
@@ -363,18 +351,13 @@ function BookingForm() {
                 </label>
               </div>
 
-              {/* Security notice */}
               <div className="flex items-center gap-2 text-xs text-gray-500 mb-6">
                 <ShieldCheck className="w-4 h-4 text-green-500" />
                 Pagamento sicuro tramite Stripe. I tuoi dati sono protetti.
               </div>
 
               <div className="flex gap-3">
-                <button
-                  type="button"
-                  onClick={() => setStep(2)}
-                  className="btn-secondary"
-                >
+                <button type="button" onClick={() => setStep(2)} className="btn-secondary">
                   ← Indietro
                 </button>
                 <button
@@ -399,7 +382,6 @@ function BookingForm() {
           )}
         </div>
 
-        {/* Summary sidebar */}
         <div>
           <div className="bg-cream-100 border border-gold-200 p-6 sticky top-24">
             <h3 className="font-display text-lg text-gray-900 mb-4 pb-3 border-b border-gold-200">
@@ -429,17 +411,32 @@ function BookingForm() {
               </div>
             ) : priceData ? (
               <div className="space-y-2 text-sm">
+                {priceData.discount_percentage && priceData.discount_percentage > 0 && (
+                  <>
+                    <div className="flex justify-between text-gray-400">
+                      <span>Prezzo pieno</span>
+                      <span className="line-through">{formatCurrency(priceData.subtotal_before_discount || 0)}</span>
+                    </div>
+                    <div className="flex justify-between text-green-600 font-bold">
+                      <span>Sconto {priceData.discount_percentage}%</span>
+                      <span>-{formatCurrency((priceData.subtotal_before_discount || 0) - priceData.subtotal)}</span>
+                    </div>
+                  </>
+                )}
                 <div className="flex justify-between text-gray-500 py-1 border-t border-gold-200 mt-3">
                   <span>{priceData.nights} notti</span>
                   <span>{formatCurrency(priceData.subtotal)}</span>
                 </div>
                 <div className="flex justify-between text-gray-500">
                   <span>Pulizie</span>
-                  <span>{formatCurrency(priceData.cleaning_fee)}</span>
+                  <span className="text-green-600 font-bold">Incluse ✅</span>
                 </div>
                 <div className="flex justify-between font-bold text-gray-900 text-base pt-2 border-t-2 border-gold-500 mt-2">
                   <span>Totale</span>
                   <span className="text-gold-600">{formatCurrency(priceData.total)}</span>
+                </div>
+                <div className="text-xs text-amber-600 mt-2">
+                  ⚠️ Tassa soggiorno: €1,50/persona/notte (non inclusa)
                 </div>
               </div>
             ) : (
@@ -449,7 +446,7 @@ function BookingForm() {
             <div className="mt-5 pt-4 border-t border-gold-200 text-xs text-gray-500 space-y-1">
               <p>📍 Via Adolfo Massei 28, Lido di Camaiore</p>
               <p>🌊 250m dalla spiaggia</p>
-              <p>👥 Max 10 ospiti</p>
+              <p>👥 Max 10 ospiti · Check-in 15:30</p>
             </div>
           </div>
 
@@ -473,7 +470,6 @@ function BookingForm() {
 export default function PrenotazionePage() {
   return (
     <>
-      {/* Hero */}
       <section className="bg-gray-900 pt-20 pb-10">
         <div className="max-w-7xl mx-auto px-4 text-center pt-6">
           <p className="font-accent italic text-gold-300 text-xl mb-2">Prenota direttamente</p>
