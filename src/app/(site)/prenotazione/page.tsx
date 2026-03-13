@@ -39,7 +39,7 @@ function BookingForm() {
     }
   };
 
-  const handleChange = (e) => {
+ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     const updated = { ...form, [name]: name === 'guests_count' ? Number(value) : value };
     setForm(updated);
