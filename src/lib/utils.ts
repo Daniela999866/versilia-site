@@ -1,46 +1,47 @@
-// @ts-nocheckimport { clsx, type ClassValue } from 'clsx';
+// @ts-nocheck
+import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { differenceInDays, eachDayOfInterval, format, parseISO, isSameDay, isBefore, isAfter } from 'date-fns';
 import { it } from 'date-fns/locale';
 
-export function cn(...inputs: ClassValue[]) { return twMerge(clsx(inputs)); }
+export function cn(...inputs) { return twMerge(clsx(inputs)); }
 
-export function formatDate(date: string | Date): string {
+export function formatDate(date) {
   const d = typeof date === 'string' ? parseISO(date) : date;
   return format(d, 'dd MMM yyyy', { locale: it });
 }
 
-export function formatCurrency(amount: number): string {
+export function formatCurrency(amount) {
   return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(amount);
 }
 
-export function calculateNights(checkIn: string, checkOut: string): number {
+export function calculateNights(checkIn, checkOut) {
   return differenceInDays(parseISO(checkOut), parseISO(checkIn));
 }
 
-export function getDatesInRange(checkIn: string, checkOut: string): string[] {
+export function getDatesInRange(checkIn, checkOut) {
   const start = parseISO(checkIn);
   const end = parseISO(checkOut);
   return eachDayOfInterval({ start, end }).map((d) => format(d, 'yyyy-MM-dd'));
 }
 
-function isItalianHoliday(date: Date): boolean {
+function isItalianHoliday(date) {
   const m = date.getMonth() + 1;
   const d = date.getDate();
   return [[1,1],[1,6],[4,25],[5,1],[6,2],[8,15],[11,1],[12,8],[12,25],[12,26]].some(([hm,hd]) => hm===m && hd===d);
 }
 
-function isAltaStagione(date: Date): boolean {
+function isAltaStagione(date) {
   const y = date.getFullYear();
   return !isBefore(date, new Date(y,5,4)) && !isAfter(date, new Date(y,8,30));
 }
 
-function isAltaAvanzata(date: Date): boolean {
+function isAltaAvanzata(date) {
   const y = date.getFullYear();
   return !isBefore(date, new Date(y,5,12)) && !isAfter(date, new Date(y,8,30));
 }
 
-export function getNightPrice(date: Date): number {
+export function getNightPrice(date) {
   const dow = date.getDay();
   const alta = isAltaStagione(date);
   const avanzata = isAltaAvanzata(date);
@@ -53,7 +54,7 @@ export function getNightPrice(date: Date): number {
   return alta ? 850 : 700;
 }
 
-export function calculatePrice(checkIn: string, checkOut: string, _prices?: any[]): any {
+export function calculatePrice(checkIn, checkOut, _prices) {
   const start = parseISO(checkIn);
   const end = parseISO(checkOut);
   const nightDays = eachDayOfInterval({ start, end }).slice(0, -1);
@@ -85,14 +86,14 @@ export function calculatePrice(checkIn: string, checkOut: string, _prices?: any[
   };
 }
 
-export function isDateBlocked(date: Date, blockedDates: string[], bookedDates: string[]): boolean {
+export function isDateBlocked(date, blockedDates, bookedDates) {
   return blockedDates.some((d) => isSameDay(parseISO(d), date)) || bookedDates.some((d) => isSameDay(parseISO(d), date));
 }
 
-export function generateAdminToken(secret: string): string {
+export function generateAdminToken(secret) {
   return Buffer.from(`villa-admin:${secret}:${Date.now()}`).toString('base64');
 }
 
-export function sleep(ms: number): Promise<void> {
+export function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
