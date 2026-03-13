@@ -1,7 +1,6 @@
 // @ts-nocheck
 // src/app/(site)/prenotazione/page.tsx
 import { useState, useEffect, Suspense } from 'react';
-// @ts-nocheck
 import { format, parseISO, differenceInDays } from 'date-fns';
 import { it } from 'date-fns/locale';
 import { formatCurrency } from '@/lib/utils';
