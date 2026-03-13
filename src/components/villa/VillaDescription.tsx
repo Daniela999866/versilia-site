@@ -57,7 +57,7 @@ export default function VillaDescription() {
               <ul className="space-y-3">
                 {[
                   { label: 'Tipo', value: 'Casa vacanze intera' },
-                  { label: 'Ospiti', value: 'Fino a 8- 10persone' },
+                  { label: 'Ospiti', value: 'Fino a 10 persone' },
                   { label: 'Camere', value: '3 camere da letto' },
                   { label: 'Bagni', value: '2 bagni completi' },
                   { label: 'Distanza mare', value: '~250 metri' },
