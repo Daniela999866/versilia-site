@@ -17,9 +17,9 @@ const rooms = [
     img: '/images/villa/villa-versilia-camera-blu-matrimoniale-castello.jpg',
   },
   {
-    title: 'Camera con Letti Singoli',
-    desc: 'Camera luminosa con due letti singoli, tende oscuranti e aria condizionata. Perfetta per bambini o amici. TV a parete.',
-    features: ['2 letti singoli', 'Tende oscuranti', 'Aria condizionata', 'TV a parete'],
+    title: 'Camera con Letto Matrimoniale',
+    desc: 'Camera luminosa con letto matrimoniale, tende oscuranti e aria condizionata. Perfetta per bambini o amici. TV a parete.',
+    features: ['Letto matrimoniale', 'Tende oscuranti', 'Aria condizionata', 'TV a parete'],
     img: '/images/villa/villa-versilia-camera-singoli-tende-rosse.jpg',
   },
   {
@@ -33,7 +33,7 @@ const rooms = [
 const spaces = [
   {
     title: 'Soggiorno',
-    desc: 'Ampio soggiorno con divano, Smart TV, porta scorrevole in legno e scala in marmo con ringhiera decorativa. Aria condizionata.',
+    desc: 'Ampio soggiorno con divano letto, Smart TV, porta scorrevole in legno e scala in marmo con ringhiera decorativa. Aria condizionata.',
     img: '/images/villa/villa-versilia-soggiorno-completo.jpg',
   },
   {
