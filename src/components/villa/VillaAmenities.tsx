@@ -1,7 +1,7 @@
 // @ts-nocheck
 // src/components/villa/VillaAmenities.tsx
 const groups = [
-  { title: 'Alloggio', emoji: '🏠', items: ['3 camere da letto','2 bagni completi','Soggiorno luminoso','Cucina attrezzata','Sala da pranzo','Fino a 8 ospiti'] },
+  { title: 'Alloggio', emoji: '🏠', items: ['3 camere da letto','2 bagni completi','Soggiorno luminoso','Cucina attrezzata','Sala da pranzo','Fino a 10 ospiti'] },
   { title: 'Comfort', emoji: '❄️', items: ['Aria condizionata','Wi-Fi gratuito','Lavatrice','TV','Biancheria inclusa','Asciugacapelli'] },
   { title: 'Cucina', emoji: '🍳', items: ['Piano cottura','Lavastoviglie','Frigorifero','Macchina caffè','Stoviglie complete'] },
   { title: 'Spazi esterni', emoji: '🌿', items: ['Giardino privato','Zona barbecue','Area pranzo esterna','Spazio relax','Tavolo e sedie','Illuminazione esterna'] },
