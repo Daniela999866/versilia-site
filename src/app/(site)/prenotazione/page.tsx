@@ -24,7 +24,7 @@ function BookingForm() {
   const [paymentType, setPaymentType] = useState('deposit');
   const [step, setStep] = useState(1);
 
-  const fetchPrice = async (ci, co) => {
+  const fetchPrice = async (ci: string, co: string) => {
     if (!ci || !co) return;
     if (differenceInDays(parseISO(co), parseISO(ci)) < 1) return;
     setLoadingPrice(true);
