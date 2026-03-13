@@ -21,7 +21,7 @@ const highlights = [
   { icon: Bed,    label: '3 camere',      sub: 'Fino a 10 ospiti' },
   { icon: Bath,   label: '2 bagni',       sub: 'Con doccia' },
   { icon: Users,  label: 'Famiglie',      sub: 'Ideale per gruppi' },
-  { icon: Wifi,   label: 'Wi-Fi incluso', sub:  },
+  { icon: Wifi,   label: 'Wi-Fi incluso', sub: 'Internet veloce'  },
   { icon: Car,    label: 'Parcheggio',    sub: '2 auto private' },
 ];
 
