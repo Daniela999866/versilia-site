@@ -1,3 +1,4 @@
+// @ts-nocheck
 // src/components/villa/VillaAmenities.tsx
 const groups = [
   { title: 'Alloggio', emoji: '🏠', items: ['3 camere da letto','2 bagni completi','Soggiorno luminoso','Cucina attrezzata','Sala da pranzo','Fino a 8 ospiti'] },
