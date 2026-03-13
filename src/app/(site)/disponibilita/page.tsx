@@ -265,7 +265,7 @@ export default function DisponibilitaPage() {
                   <Info className="w-4 h-4 text-brand-600 mt-0.5 flex-shrink-0" />
                   <div className="text-xs text-brand-700 space-y-1.5">
                     <p className="font-bold">Informazioni utili</p>
-                    <p>• Soggiorno minimo: <strong>3 notti</strong></p>
+                   
                     <p>• Check-in: <strong>dalle 16:00</strong></p>
                     <p>• Check-out: <strong>entro le 10:00</strong></p>
                     <p>• Fino a <strong>10 ospiti</strong></p>
