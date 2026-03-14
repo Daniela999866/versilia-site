@@ -16,11 +16,10 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex flex-col">
       {/* Background image with overlay */}
       <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/villa/hero-main.jpg?nocache=20260314')`,
-          }}
+      <img
+  src="/images/villa/hero-main.jpg"
+  alt="Villa Versilia"
+  className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/65" />
