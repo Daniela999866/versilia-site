@@ -54,6 +54,14 @@ function BookingForm() {
     e.preventDefault();
     if (!form.check_in || !form.check_out) return toast.error('Seleziona le date');
     if (differenceInDays(parseISO(form.check_out), parseISO(form.check_in)) < 1) return toast.error('Il check-out deve essere dopo il check-in');
+    const availRes = await fetch('/api/availability');
+const { blocked_dates, booked_dates } = await availRes.json();
+const allBlocked = [...(blocked_dates || []), ...(booked_dates || [])];
+const ci = parseISO(form.check_in);
+const co = parseISO(form.check_out);
+const daysInRange = eachDayOfInterval({ start: ci, end: co });
+const hasBlocked = daysInRange.some(d => allBlocked.includes(format(d, 'yyyy-MM-dd')));
+if (hasBlocked) return toast.error('Le date selezionate contengono giorni non disponibili');
     setStep(2);
   };
 
