@@ -17,7 +17,7 @@ export default function HeroSection() {
       {/* Background image with overlay */}
       <div className="absolute inset-0 z-0">
       <img
-  src="/images/villa/hero-main.jpg"
+  src="/images/villa/hero-main.jpg?v=20260314"
   alt="Villa Versilia"
   className="absolute inset-0 w-full h-full object-cover"
         />
