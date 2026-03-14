@@ -50,7 +50,7 @@ function BookingForm() {
     }
   };
 
-  const handleSubmitStep1 = (e) => {
+  const handleSubmitStep1 = async (e) => {
     e.preventDefault();
     if (!form.check_in || !form.check_out) return toast.error('Seleziona le date');
     if (differenceInDays(parseISO(form.check_out), parseISO(form.check_in)) < 1) return toast.error('Il check-out deve essere dopo il check-in');
