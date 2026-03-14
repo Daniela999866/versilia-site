@@ -43,7 +43,7 @@ export default function HomePage() {
       <section className="relative min-h-screen flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/villa/villa-hero-main.jpg"
+            src="/images/villa/hero-main.jpg"
             alt="Villa Versilia – Vista aerea con il mare di Lido di Camaiore"
             className="w-full h-full object-cover"
           />
